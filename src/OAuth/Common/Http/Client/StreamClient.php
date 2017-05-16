@@ -43,13 +43,6 @@ class StreamClient extends AbstractClient
             $extraHeaders['Content-Type'] = 'Content-Type: application/x-www-form-urlencoded';
         }
 
-        $host = 'Host: '.$endpoint->getHost();
-        // Append port to Host if it has been specified
-        if ($endpoint->hasExplicitPortSpecified()) {
-            $host .= ':'.$endpoint->getPort();
-        }
-
-        $extraHeaders['Host']       = $host;
         $extraHeaders['Connection'] = 'Connection: close';
 
         if (is_array($requestBody)) {
